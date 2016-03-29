@@ -35,8 +35,8 @@ public class MainPhotoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.main_photo_fragment,
                 container, false);
-        this.ClickMe = (Button) rootView.findViewById(R.id.button);
-        this.tv = (TextView) rootView.findViewById(R.id.main_photo_textView);
+        ClickMe = (Button) rootView.findViewById(R.id.button);
+        tv = (TextView) rootView.findViewById(R.id.main_photo_textView);
         ClickMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

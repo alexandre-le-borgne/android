@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import iut.shootit.fragments.MainMapFragment;
 import iut.shootit.fragments.MainPhotoFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return MainPhotoFragment.getInstance();
                 case 1:
-                    return PlaceholderFragment.newInstance(position + 1);
+                    return MainMapFragment.getInstance();
             }
             return null;
         }
