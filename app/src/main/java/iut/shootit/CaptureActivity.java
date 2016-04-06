@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -37,10 +38,10 @@ public class CaptureActivity extends AppCompatActivity {
 
     Button btpic, btnup;
     private Uri fileUri;
-    String picturePath;
-    Uri selectedImage;
-    Bitmap photo;
-    String ba1;
+    static String picturePath;
+    static Uri selectedImage;
+    static Bitmap photo;
+    static String ba1;
     public static String URL = "http://alex83690.alwaysdata.net/shootit/";
 
     @Override
@@ -139,6 +140,7 @@ public class CaptureActivity extends AppCompatActivity {
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
             nameValuePairs.add(new BasicNameValuePair("base64", ba1));
             nameValuePairs.add(new BasicNameValuePair("ImageName", System.currentTimeMillis() + ".jpg"));
+            nameValuePairs.add(new BasicNameValuePair("android_id", Settings.Secure.ANDROID_ID));
             try {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(URL);
