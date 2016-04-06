@@ -1,21 +1,30 @@
 package iut.shootit;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 import iut.shootit.fragments.MainMapFragment;
 import iut.shootit.fragments.MainPhotoFragment;
@@ -51,19 +60,6 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-//        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-//        tabLayout.setupWithViewPager(mViewPager);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
     }
 
 
@@ -130,4 +126,35 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
+//    public void showTimePickerDialog(View v) {
+//        DialogFragment newFragment = new TimePickerFragment();
+//        newFragment.show(getSupportFragmentManager(), "timePicker");
+//    }
+//
+//    public static class TimePickerFragment extends DialogFragment
+//            implements DatePickerDialog.OnDateSetListener{
+//
+//        @Override
+//        public Dialog onCreateDialog(Bundle savedInstanceState) {
+//            // Use the current time as the default values for the picker
+//            final Calendar c = Calendar.getInstance();
+//            int hour = c.get(Calendar.HOUR_OF_DAY);
+//            int minute = c.get(Calendar.MINUTE);
+//
+//            // Create a new instance of TimePickerDialog and return it
+//            return new TimePickerDialog(getActivity(), this, hour, minute,
+//                    DateFormat.is24HourFormat(getActivity()));
+//        }
+//
+//        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//            // Do something with the time chosen by the user
+//        }
+//
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//
+//        }
+//    }
+
 }

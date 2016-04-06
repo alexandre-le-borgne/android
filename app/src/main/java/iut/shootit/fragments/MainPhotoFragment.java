@@ -1,5 +1,6 @@
 package iut.shootit.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import iut.shootit.CaptureActivity;
 import iut.shootit.R;
 
 /**
@@ -40,6 +42,8 @@ public class MainPhotoFragment extends Fragment {
         ClickMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivity(intent);
                 if (tv.getText().toString().contains("Hello")) {
                     tv.setText("Hi");
                 } else tv.setText("Hello");
