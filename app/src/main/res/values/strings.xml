@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ShootIt</string>
+    <string name="galery">Galerie</string>
+    <string name="reload">Recharger</string>
+    <string name="nextButton">Next</string>
+    <string name="prevButton">Previous</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_capture">CaptureActivity</string>
