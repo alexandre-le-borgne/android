@@ -58,6 +58,7 @@ public class CaptureActivity extends AppCompatActivity {
         });
 
         btnup = (Button) findViewById(R.id.up);
+
         btnup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +83,9 @@ public class CaptureActivity extends AppCompatActivity {
         Log.e("base64", "-----" + ba1);
 
         // Upload image to server
-        new uploadToServer().execute();
+        new UploadToServer().execute();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
 
     }
 
@@ -90,6 +93,10 @@ public class CaptureActivity extends AppCompatActivity {
         // Check Camera
         if (getApplicationContext().getPackageManager().hasSystemFeature(
                 PackageManager.FEATURE_CAMERA)) {
+            picturePath = null;
+            selectedImage = null;
+            photo = null;
+            ba1 = null;
             // Open default camera
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
@@ -122,10 +129,12 @@ public class CaptureActivity extends AppCompatActivity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             ImageView imageView = (ImageView) findViewById(R.id.Imageprev);
             imageView.setImageBitmap(photo);
+
+            btnup.setEnabled(true);
         }
     }
 
-    public class uploadToServer extends AsyncTask<Void, Void, String> {
+    public class UploadToServer extends AsyncTask<Void, Void, String> {
 
         private ProgressDialog pd = new ProgressDialog(CaptureActivity.this);
         protected void onPreExecute() {

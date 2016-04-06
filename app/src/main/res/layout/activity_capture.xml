@@ -25,20 +25,24 @@
         android:textAlignment="center">
 
         <Button
-            android:id="@+id/up"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Heberger mon image"
-            android:layout_below="@+id/cpic"/>
-
-        <Button
             android:id="@+id/cpic"
             android:text="Nouvelle image"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_below="@+id/Imageprev"/>
+            android:layout_below="@+id/Imageprev"
+            android:textColor="@color/accent_material_light" />
+
+        <Button
+            android:id="@+id/up"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Heberger mon image"
+            android:layout_below="@+id/cpic"
+            android:enabled="false"
+            android:singleLine="true"
+            android:textColor="@color/accent_material_light" />
 
     </LinearLayout>
 
