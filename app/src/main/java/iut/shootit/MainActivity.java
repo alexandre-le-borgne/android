@@ -2,29 +2,21 @@ package iut.shootit;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.format.DateFormat;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import iut.shootit.fragments.MainMapFragment;
 import iut.shootit.fragments.MainPhotoFragment;
@@ -127,34 +119,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    public void showTimePickerDialog(View v) {
-//        DialogFragment newFragment = new TimePickerFragment();
-//        newFragment.show(getSupportFragmentManager(), "timePicker");
-//    }
-//
-//    public static class TimePickerFragment extends DialogFragment
-//            implements DatePickerDialog.OnDateSetListener{
-//
-//        @Override
-//        public Dialog onCreateDialog(Bundle savedInstanceState) {
-//            // Use the current time as the default values for the picker
-//            final Calendar c = Calendar.getInstance();
-//            int hour = c.get(Calendar.HOUR_OF_DAY);
-//            int minute = c.get(Calendar.MINUTE);
-//
-//            // Create a new instance of TimePickerDialog and return it
-//            return new TimePickerDialog(getActivity(), this, hour, minute,
-//                    DateFormat.is24HourFormat(getActivity()));
-//        }
-//
-//        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//            // Do something with the time chosen by the user
-//        }
-//
-//        @Override
-//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//
-//        }
-//    }
+    public void showDatePicker(View v) {
 
+        DialogFragment newFragment = new DatePicketFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    public static class DatePicketFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            //R.style.Theme_DeviceDefault_Light_Dialog_Alert
+            Calendar cal = GregorianCalendar.getInstance();
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+            int day = cal.get(Calendar.DAY_OF_MONTH);
+
+            //Valeurs par défaut
+            return new DatePickerDialog(getActivity(), this, year, month, day);
+        }
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            MaDate date = new MaDate(year, monthOfYear + 1, dayOfMonth);
+            Log.d("DATEPICK", date.toString());
+        }
+    }
+
+    public SectionsPagerAdapter getmSectionsPagerAdapter() {
+        return mSectionsPagerAdapter;
+    }
 }
