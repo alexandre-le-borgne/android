@@ -138,9 +138,11 @@ public class CaptureActivity extends AppCompatActivity {
         protected String doInBackground(Void... params) {
 
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
+            nameValuePairs.add(new BasicNameValuePair("action", "upload"));
             nameValuePairs.add(new BasicNameValuePair("base64", ba1));
             nameValuePairs.add(new BasicNameValuePair("ImageName", System.currentTimeMillis() + ".jpg"));
-            nameValuePairs.add(new BasicNameValuePair("android_id", Settings.Secure.ANDROID_ID));
+            Log.e("android_id", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID));
+            nameValuePairs.add(new BasicNameValuePair("android_id", Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID)));
             try {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(URL);
