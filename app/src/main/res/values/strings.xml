@@ -10,4 +10,5 @@
     <string name="pick_date">Choisir une date</string>
     <string name="link_choice">Choisissez un lien</string>
     <string name="see_image">Voir l\'image</string>
+    <string name="new_pic">Prendre une photo</string>
 </resources>
