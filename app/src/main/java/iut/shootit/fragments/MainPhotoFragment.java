@@ -103,7 +103,8 @@ public class MainPhotoFragment extends Fragment {
             retour = new JSONObject(str);
 
         } catch (Exception e) {
-            Log.v("log_tag", "Error in http connection " + e.toString());
+            Log.v("log_tag", "Error in http connection ");
+            e.printStackTrace();
             return;
         }
 
@@ -118,7 +119,7 @@ public class MainPhotoFragment extends Fragment {
         byte[] decodedString = Base64.decode(imageBase64, Base64.DEFAULT);
         Bitmap image = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
-        ImageView imageView = (ImageView) getActivity().findViewById(R.id.imageView);
+        ImageView imageView = (ImageView) getActivity().findViewById(R.id.image_shot);
         imageView.setImageBitmap(image);
 
 
