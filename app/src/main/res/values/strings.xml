@@ -8,4 +8,6 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_capture">CaptureActivity</string>
     <string name="pick_date">Choisir une date</string>
+    <string name="link_choice">Choisissez un lien</string>
+    <string name="see_image">Voir l\'image</string>
 </resources>

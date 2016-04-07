@@ -71,7 +71,7 @@ public class MainMapFragment extends Fragment {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentImage < images.size()) {
+                if (currentImage < images.size()-1) {
                     ++currentImage;
                     imageView.setImageBitmap(images.get(currentImage));
                 }
